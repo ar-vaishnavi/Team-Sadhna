@@ -1,178 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AWC Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="C:\Users\Nidhishree G\Documents\Hal 13 Team Sadhna\script.js" defer></script>
+</head>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <!--Bootstrap 5 icons CDN-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-    <title>Stocks Records</title>
-
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    
-
-    <section class="p-3">
-
-        <div class="row">
-            <div class="col-12">
-                <button class="btn btn-primary newUser" data-bs-toggle="modal" data-bs-target="#userForm">New Item <i class="bi bi-people"></i></button>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <table class="table table-striped table-hover mt-3 text-center table-bordered">
-
-                    <thead>
-                        <tr>
-                            <th>S.No</th>
-                           
-                            <th>Name</th>
-                            <th>Category</th>
-                            <th>Initial Stock</th>
-                            <th>Stock Received</th>
-                            <th>Date</th>
-                            <th>Minimum Stock</th>
-                            <th>Expiry Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id="data"></tbody>
-
-                </table>
-            </div>
-        </div>
-
-    </section>
-
-
-    <!--Modal Form-->
-    <div class="modal fade" id="userForm">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h4 class="modal-title">Fill the Form</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-
-                    <form action="#" id="myForm">
-
-                        <div class="inputField">
-                            <div>
-                                <label for="name">Name:</label>
-                                <input type="text" name="" id="name" required>
-                            </div>
-                            <div>
-                                <label for="category">Category:</label>
-                                <input type="text" name="" id="category" required>
-                            </div>
-                            <div>
-                                <label for="inst">Initial Stock:</label>
-                                <input type="number" name="" id="inst" required>
-                            </div>
-                            <div>
-                                <label for="strev">Stock Received:</label>
-                                <input type="number" name="" id="strev" required>
-                            </div>
-                            <div>
-                                <label for="iDate">Date:</label>
-                                <input type="date" name="" id="iDate" required>
-                            </div>
-                            <div>
-                                <label for="minst">Minimum Stock:</label>
-                                <input type="text" name="" id="minst" required>
-                            </div>
-                            <div>
-                                <label for="sDate">Expiry Date:</label>
-                                <input type="date" name="" id="sDate" required>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" form="myForm" class="btn btn-primary submit" onclick="checkAndNotify(inst)" >Submit</button>
-                </div>
-            </div>
-        </div>
-      
-
- 
-
-
-
+<body>
+    <div class="container">
+        <nav>
+            <img src="image2.webp" alt="school logo">
+            <ul>
+                <li><a href="index.html" target="_blank">HOME</a></li>
+                <li><a href="Records/page.html" target="_self">RECORDS</a></li>
+                <li><a href="Stocks/index.html" target="_self">STOCKS</a></li>
+                <li><a href="orders.html" target="_self">PLACE ORDERS</a></li>
+            </ul>
+        </nav>
     </div>
 
-    <!--Read Data Modal-->
-    <div class="modal fade" id="readData">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h4 class="modal-title">Profile</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-
-                    <form action="#" id="myForm">
-
-                        
-
-                        <div class="inputField">
-                            <div>
-                                <label for="name">Name:</label>
-                                <input type="text" name="" id="showName" disabled>
-                            </div>
-                            <div>
-                                <label for="category">Category:</label>
-                                <input type="number" name="" id="showCat" disabled>
-                            </div>
-                            <div>
-                                <label for="inst">Initial Stock:</label>
-                                <input type="text" name="" id="showInst" disabled>
-                            </div>
-                            <div>
-                                <label for="strev">Stock Received:</label>
-                                <input type="email" name="" id="showStrev" disabled>
-                            </div>
-                            <div>
-                                <label for="iDate">Date:</label>
-                                <input type="text" name="" id="showIdate" minlength="11" maxlength="11" disabled>
-                            </div>
-                            <div>
-                                <label for="minst">Minimum Stock:</label>
-                                <input type="text" name="" id="showMin" disabled>
-                            </div>
-                            <div>
-                                <label for="sDate">Expiry Date:</label>
-                                <input type="date" name="" id="showsDate" disabled>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
+    <div class="wrapper">
+        <form id="loginForm" onsubmit="return validateForm()">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" id="centerName" placeholder="CENTER NAME" required>
+                <i class='bx bxs-user'></i>
             </div>
-        </div>
+            <div class="input-box">
+                <input type="password" id="code" placeholder="CODE" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <button type="button" class="btn" onclick="welcome()">Login</button>
+        </form>
     </div>
+</body>
 
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <script src="app.js"></script>
-  </body>
 </html>
